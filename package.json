@@ -1,0 +1,23 @@
+{
+  "name": "crawlersiops",
+  "version": "1.0.0",
+  "description": "Coletar informação da pagina do SIPOS para atualizar o app constitucional",
+  "main": "siops.js",
+  "scripts": {
+    "docker-build": "docker build -t crawlerSiops .",
+    "docker-run": "docker run -t -i --name crawlerSiops crawlerSiops",
+    "docker-stop": "docker stop crawlerSiops; docker rm crawlerSiops",
+    "start-staging": "node src/cli.js -h 192.168.2.82:8983/solr -c gestao_conhecimento",
+    "start": "node src/cli.js -h 172.24.177.3:8983/solr -c gestao_conhecimento"
+  },
+  "author": "TEAM GISSA",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "latest",
+    "express": "latest",
+    "puppeteer-cli": "^1.0.0",
+    "request": "latest",
+    "solrClientApi": "file:../solrClientApi",
+    "yargs": "^7.1.0"
+  }
+}
